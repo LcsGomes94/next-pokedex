@@ -29,7 +29,7 @@ export default function SearchBar({ handlePokemonList, handlePage }: SearchBarPr
     }, 200)
 
     return () => clearTimeout(getData)
-  }, [inputValue, handlePage, handlePokemonList])
+  }, [inputValue])
   
 
   return (

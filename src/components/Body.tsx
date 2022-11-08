@@ -25,7 +25,7 @@ export default function Body({ pokemonList, handlePokemonList, page, handlePage 
             }
         })
         if (node) observer.current.observe(node)
-    },[page, handlePage, handlePokemonList, pokemonList])
+    },[page])
 
     return (
         <div className='pb-10'>
