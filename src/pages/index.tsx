@@ -45,7 +45,7 @@ export default function Home({ firstPage }: HomeProps) {
 }
 
 export const getStaticProps = async () => {
-  const resp = await fetch('http://localhost:3000/api/pokemons/1')
+  const resp = await fetch('/api/pokemons/1')
   const firstPage = await resp.json()
 
   return {

@@ -16,7 +16,7 @@ export default function SearchBar({ handlePokemonList, handlePage }: SearchBarPr
   const searchedBefore = useRef(false)
 
   useEffect(() => {
-    const url = `http://localhost:3000/api/pokemons/${inputValue.toLocaleLowerCase()}`
+    const url = `/api/pokemons/${inputValue.toLocaleLowerCase()}`
 
     const getData = setTimeout(() => {
       if (inputValue.length > 1) {
@@ -24,12 +24,12 @@ export default function SearchBar({ handlePokemonList, handlePage }: SearchBarPr
         fetch(url).then(res => res.json()).then(res => handlePokemonList(res, false))
         searchedBefore.current = true
       } else if (searchedBefore.current) {
-        fetch('http://localhost:3000/api/pokemons/1').then(res => res.json()).then(res => handlePokemonList(res, true))
+        fetch('api/pokemons/1').then(res => res.json()).then(res => handlePokemonList(res, true))
       }
     }, 200)
 
     return () => clearTimeout(getData)
-  }, [inputValue])
+  }, [inputValue, handlePage, handlePokemonList])
   
 
   return (

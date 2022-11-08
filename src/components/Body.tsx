@@ -1,7 +1,7 @@
 import { PokemonData } from '../pages'
 import Card from './Card'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef } from 'react'
 
 interface BodyProps{
     pokemonList: PokemonData[]
@@ -19,13 +19,13 @@ export default function Body({ pokemonList, handlePokemonList, page, handlePage 
         if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(async entries => {
             if (entries[0].isIntersecting && page <= 28) {
-                await fetch(`http://localhost:3000/api/pokemons/${page + 1}`).then(res => res.json())
+                await fetch(`/api/pokemons/${page + 1}`).then(res => res.json())
                     .then(res => handlePokemonList([...pokemonList, ...res], false))
                 handlePage(page + 1)
             }
         })
         if (node) observer.current.observe(node)
-    },[page])
+    },[page, handlePage, handlePokemonList, pokemonList])
 
     return (
         <div className='pb-10'>
