@@ -24,7 +24,7 @@ export default function SearchBar({ handlePokemonList, handlePage }: SearchBarPr
         fetch(url).then(res => res.json()).then(res => handlePokemonList(res, false))
         searchedBefore.current = true
       } else if (searchedBefore.current) {
-        fetch('api/pokemons/1').then(res => res.json()).then(res => handlePokemonList(res, true))
+        fetch('/api/pokemons/1').then(res => res.json()).then(res => handlePokemonList(res, true))
       }
     }, 200)
 

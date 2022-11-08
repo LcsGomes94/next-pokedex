@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import Body from '../components/Body'
 import Header from '../components/Header'
+import pokemonList from '../services/pokemonData.json'
 
 export interface PokemonData {
   name: string
@@ -45,8 +46,7 @@ export default function Home({ firstPage }: HomeProps) {
 }
 
 export const getStaticProps = async () => {
-  const resp = await fetch('/api/pokemons/1')
-  const firstPage = await resp.json()
+  const firstPage = pokemonList[0]
 
   return {
     props: {
