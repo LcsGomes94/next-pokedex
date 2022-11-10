@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="icon" href="/favicon.png" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"></link>
       </Head>
-      <body>
+      <body className={`dark:bg-gray-900`}>
         <Main />
         <NextScript />
       </body>

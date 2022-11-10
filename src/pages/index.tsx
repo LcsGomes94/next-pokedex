@@ -14,13 +14,8 @@ interface HomeProps {
 }
 
 export default function Home({ firstPage }: HomeProps) {
-  const [ darkMode, setDarkMode ] = useState(false)
   const [ pokemonList, setPokemonList ] = useState(firstPage)
   const [ page, setPage ] = useState(1)
-
-  function handleDarkModeToggle () {
-    setDarkMode(darkMode => !darkMode)
-  }
 
   function handlePokemonList (pokemonList: PokemonData[], resetPage: boolean) {
     setPokemonList(pokemonList)
@@ -32,16 +27,14 @@ export default function Home({ firstPage }: HomeProps) {
   }
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
+    <>
       <Head>
         <title>Pokédex by LcsGomes</title>
       </Head>
       
-      <div className='dark:bg-gray-800'>
-        <Header handleDarkModeToggle={handleDarkModeToggle} handlePokemonList={handlePokemonList} handlePage={handlePage}></Header>
-        <Body pokemonList={pokemonList} handlePokemonList={handlePokemonList} page={page} handlePage={handlePage}></Body>
-      </div>
-    </div>
+      <Header handlePokemonList={handlePokemonList} handlePage={handlePage}></Header>
+      <Body pokemonList={pokemonList} handlePokemonList={handlePokemonList} page={page} handlePage={handlePage}></Body>
+    </>
   )
 }
 

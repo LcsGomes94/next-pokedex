@@ -4,12 +4,15 @@ import { BsFillMoonStarsFill } from 'react-icons/bs'
 import { PokemonData } from '../pages'
 
 interface HeaderProps {
-    handleDarkModeToggle: () => void
     handlePokemonList: (pokemonList: PokemonData[], resetPage: boolean) => void
     handlePage: (pageNumber: number) => void
 }
 
-export default function Header({ handleDarkModeToggle, handlePokemonList, handlePage }: HeaderProps) {
+export default function Header({ handlePokemonList, handlePage }: HeaderProps) {
+  function handleDarkModeToggle () {
+    document.documentElement.classList.toggle('dark')
+  }
+  
   return (
     <header className={`h-20 mb-10 border-b border-gray-300 dark:border-gray-600 caret-transparent`}>
         <div className={`max-w-[1280px] mx-auto h-full px-5 flex items-center`}>
