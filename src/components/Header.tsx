@@ -15,7 +15,7 @@ export default function Header({ handlePokemonList, handlePage }: HeaderProps) {
   
   return (
     <header className={`h-20 mb-10 border-b border-gray-300 dark:border-gray-600 caret-transparent`}>
-        <div className={`max-w-[1280px] mx-auto h-full px-5 flex items-center`}>
+        <div className={`max-w-screen-xl mx-auto h-full px-5 flex items-center`}>
 
           <div className='flex-1 flex sm:justify-center sm:min-w-[350px]'>
             <SearchBar handlePokemonList={handlePokemonList} handlePage={handlePage} />
